@@ -3,7 +3,8 @@
 const mongoose = require("mongoose");
 const  asi_Schema = new mongoose.Schema({
     name: String,
-    isPrepared: Boolean,
+    isPrepared_personal: Boolean,
+    isPrepared_family: Boolean,
   });
 
   const ASI = mongoose.model("ASI", asi_Schema);

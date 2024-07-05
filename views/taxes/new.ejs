@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Request</title>
 </head>
-<body>
+<body >
         <h1>  Create a Tax Return Request</h1>
         <form action="/taxes" method="POST">
             <label for="name">Request:</label>
             <input type="text" name="name" id="name" />
         
-            <label for="isPrepared"> Personal </label>
-            <input type="checkbox" name="isPrepared" id="isPrepared" />
+            <label for="isPrepared_personal"> Personal </label>
+            <input type="checkbox" name="isPrepared_personal" id="isPrepared_personal" />
 
-            <label for="isPrepared"> Family </label>
-            <input type="checkbox" name="isPrepared" id="isPrepared" />
+            <label for="isPrepared_family"> Family </label>
+            <input type="checkbox" name="isPrepared_family" id="isPrepared_family" />
         
             <button type="submit">Add Request </button>
           </form>

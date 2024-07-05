@@ -21,6 +21,9 @@ mongoose.connection.on("connected", () => {
 // Import the ASI model
 const _ASI_= require("./models/a-s-i.js");
  
+// middleware
+app.use(express.urlencoded({ extended: false }));
+
 // GET /
 app.get("/", async (req, res) => {
     res.render("index.ejs");
@@ -28,6 +31,22 @@ app.get("/", async (req, res) => {
 //  Get /tax/new
 app.get("/taxes/new", async (req, res) => {
     res.render("taxes/new.ejs");
+  });
+
+// POST /taxes
+app.post("/taxes", async (req, res) => { 
+    if (req.body.isPrepared_personal === "on") {
+        req.body.isPrepared_personal = true;
+    } else if  (req.body.isPrepared_family=== "on"){
+        req.body.isPrepared_family = true;
+    } else {
+        req.body.isPrepared_personal = false;
+        req.body.isPrepared_family = false;
+    }
+
+    
+      await _ASI_.create(req.body);
+      res.redirect("/taxes/new");
   });
 
 app.listen(3000, () => {
