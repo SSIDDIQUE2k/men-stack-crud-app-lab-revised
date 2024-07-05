@@ -28,6 +28,13 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", async (req, res) => {
     res.render("index.ejs");
   });
+
+// GET /taxes
+app.get("/taxes",  async (req, res) => {
+const allTaxes = await _ASI_.find({});
+    res.render("taxes/index.ejs", { taxes: allTaxes });
+} );
+
 //  Get /tax/new
 app.get("/taxes/new", async (req, res) => {
     res.render("taxes/new.ejs");
@@ -46,7 +53,7 @@ app.post("/taxes", async (req, res) => {
 
     
       await _ASI_.create(req.body);
-      res.redirect("/taxes/new");
+      res.redirect("/taxes");
   });
 
 app.listen(3000, () => {
