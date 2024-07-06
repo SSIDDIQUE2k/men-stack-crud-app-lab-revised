@@ -4,12 +4,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />   
+     <a href="/taxes/new">Create a new Tax Return Request</a>
     <title>TAX RETURN CLAIMS</title>
-  </head>
+  </head>  
   <body>
-    <h1>ALL TAX RETURNS</h1>
-    <a href="/taxes/new">Create a new Tax Return Request</a>
+    <h1>All Tax Returns</h1>
+    <ul>
+        <% taxes.forEach(tax => { %>
+          <li><%= tax.name %></li>
+        <% }); %>
+      </ul>
+    </body>
+    
 
   </body>
 </html>

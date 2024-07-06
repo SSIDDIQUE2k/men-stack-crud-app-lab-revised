@@ -39,7 +39,6 @@ const allTaxes = await _ASI_.find({});
 app.get("/taxes/new", async (req, res) => {
     res.render("taxes/new.ejs");
   });
-
 // POST /taxes
 app.post("/taxes", async (req, res) => { 
     if (req.body.isPrepared_personal === "on") {
