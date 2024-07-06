@@ -1,0 +1,18 @@
+<body>
+    <!-- update the header -->
+    <h1>Edit <%= tax.name %></h1>
+    <form action="/taxes/<%=tax_id%>?_method=PUT" method="POST"></form>
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= tax.name %>"/>
+  
+      <label for="isPrepared_personal">Ready to Eat?</label>
+      <input type="checkbox" name="isPrepared_personal" id="isPrepared_personal" <% if (tax.isPrepared_personal) { %>checked<% } %>/>
+      
+      <label for="isPrepared_family">Your Tax return is Ready!</label>
+      <input type="checkbox" name="isPrepared_family" id="isPrepared_family" <% if (tax.isPrepared_family) { %>checked<% } %>/>
+        
+      <button type="submit">Update Request</button>
+    </form>
+    <a href="/taxes">Back to Claim Page</a>
+  </body>
+  

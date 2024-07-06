@@ -22,6 +22,6 @@
     <form action="/taxes/<%= tax._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete</button>
     </form>
-    
+    <a href="/taxes/<%= tax._id %>/edit">Edit <%= tax.name %></a>
   </body>
 </html>
