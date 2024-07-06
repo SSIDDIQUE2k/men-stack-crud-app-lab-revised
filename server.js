@@ -4,7 +4,8 @@ const dotenv = require("dotenv"); // require package
 dotenv.config(); // Loads the environment variables from .env file
 const express = require("express");
 const mongoose = require("mongoose"); // require package
-
+const methodOverride = require("method-override"); // new
+const morgan = require("morgan"); //new
 
 const app = express();
 
@@ -23,6 +24,8 @@ const _ASI_= require("./models/a-s-i.js");
  
 // middleware
 app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method")); // new
+app.use(morgan("dev")); //new
 
 // GET /
 app.get("/", async (req, res) => {
@@ -43,7 +46,7 @@ app.get("/taxes/new", async (req, res) => {
 // GET /taxes/:id
 app.get("/taxes/:taxId", async(req, res) => {
     const foundTax = await _ASI_.findById(req.params.taxId);
-    res. render("taxes/show.ejs", { tax: foundTax });
+    res.render('taxes/show.ejs', { tax: foundTax });
   }  );
 
 // POST /taxes
@@ -60,6 +63,12 @@ app.post("/taxes", async (req, res) => {
     
       await _ASI_.create(req.body);
       res.redirect("/taxes");
+  });
+
+  // delete 
+  app.delete("/taxes/:taxId", async (req, res) => {
+    await _ASI_.findByIdAndDelete(req.params.taxId);
+    res.redirect("/taxes");
   });
 
 app.listen(3000, () => {
