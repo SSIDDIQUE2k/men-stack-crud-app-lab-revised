@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> <%= tax.name %></title>
+  </head>
+  <a href="/taxes/">Return to Claim Page</a>
+  <body>
+    <h1> <%= tax.name  %>  </h1>
+    <% 
+    if(tax.isPrepared_personal){
+      %>
+      <p>Personal Tax Return Request is fufilled</p>
+      <% 
+    } else if(tax.isPrepared_family){
+     %> 
+        <p>Family Tax Return Request is fufilled</p>
+        <%
+    } else {
+        %>
+      <p>Personal Tax Return Request is not fufilled</p>
+      <% 
+    }
+    %>
+  </body>
+</html>

@@ -39,6 +39,13 @@ const allTaxes = await _ASI_.find({});
 app.get("/taxes/new", async (req, res) => {
     res.render("taxes/new.ejs");
   });
+
+// GET /taxes/:id
+app.get("/taxes/:taxId", async(req, res) => {
+    const foundTax = await _ASI_.findById(req.params.taxId);
+    res. render("taxes/show.ejs", { tax: foundTax });
+  }  );
+
 // POST /taxes
 app.post("/taxes", async (req, res) => { 
     if (req.body.isPrepared_personal === "on") {
