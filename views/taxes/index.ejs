@@ -12,7 +12,8 @@
     <h1>All Tax Returns</h1>
     <ul>
         <% taxes.forEach(tax => { %>
-          <li><a href="/taxes"><%= tax._id %></a></li>
+        <li>
+          <a href="/taxes/<%= tax._id %>"><%= tax.name %> - <%= tax._id %></a>
         <% }); %>
       </ul>
     </body>
