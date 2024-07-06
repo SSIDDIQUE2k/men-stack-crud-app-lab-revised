@@ -49,10 +49,10 @@ app.get("/taxes/:taxId", async(req, res) => {
     res.render('taxes/show.ejs', { tax: foundTax });
   }  );
   // GET localhost:3000/taxes/:taxId/edit
-// GET /taxes/:taxId/edit
 app.get("/taxes/:taxId/edit", async (req, res) => {
   const foundTax = await _ASI_.findById(req.params.taxId);
-  res.render("taxes/edit.ejs", { tax: foundTax });
+  res.render("taxes/edit.ejs", {tax: foundTax,
+  });
 });
 
 app.put("/taxes/:taxId", async (req, res) => {

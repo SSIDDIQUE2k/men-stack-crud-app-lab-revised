@@ -1,11 +1,11 @@
 <body>
     <!-- update the header -->
     <h1>Edit <%= tax.name %></h1>
-    <form action="/taxes/<%=tax_id%>?_method=PUT" method="POST"></form>
+    <form action="/taxes/<%=tax._id%>?_method=PUT" method="POST"></form>
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" value="<%= tax.name %>"/>
   
-      <label for="isPrepared_personal">Ready to Eat?</label>
+      <label for="isPrepared_personal">Tax return Prepared</label>
       <input type="checkbox" name="isPrepared_personal" id="isPrepared_personal" <% if (tax.isPrepared_personal) { %>checked<% } %>/>
       
       <label for="isPrepared_family">Your Tax return is Ready!</label>
