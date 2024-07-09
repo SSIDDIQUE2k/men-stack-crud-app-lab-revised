@@ -59,10 +59,13 @@ app.put("/taxes/:taxId", async (req, res) => {
   // Handle the 'isPrepared_personal' checkbox data
   if (req.body.isPrepared_personal === "on") {
     req.body.isPrepared_personal = true;
-  } else if (req.body.isPrepared_family === "on") {
+  }else{
+    req.body.isPrepared_personal = false;
+  }
+
+   if (req.body.isPrepared_family === "on") {
     req.body.isPrepared_family = true;
   } else {
-    req.body.isPrepared_personal = false;
     req.body.isPrepared_family = false;
   }
 

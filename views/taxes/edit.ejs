@@ -1,14 +1,14 @@
 <body>
     <!-- update the header -->
     <h1>Edit <%= tax.name %></h1>
-    <form action="/taxes/<%=tax._id%>?_method=PUT" method="POST"></form>
+    <form action="/taxes/<%=tax._id%>?_method=PUT" method="POST">
       <label for="name">Name:</label>
       <input type="text" name="name" id="name" value="<%= tax.name %>"/>
   
-      <label for="isPrepared_personal">Tax return Prepared</label>
+      <label for="isPrepared_personal">Personal Tax return Prepared</label>
       <input type="checkbox" name="isPrepared_personal" id="isPrepared_personal" <% if (tax.isPrepared_personal) { %>checked<% } %>/>
       
-      <label for="isPrepared_family">Your Tax return is Ready!</label>
+      <label for="isPrepared_family">Family Tax return is Ready!</label>
       <input type="checkbox" name="isPrepared_family" id="isPrepared_family" <% if (tax.isPrepared_family) { %>checked<% } %>/>
         
       <button type="submit">Update Request</button>

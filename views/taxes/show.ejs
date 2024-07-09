@@ -8,17 +8,19 @@
   <body>
     <a href="/taxes/">Return to Claim Page</a>
     <h1> <%= tax.name  %>  </h1> <% 
-    if(tax.isPrepared_personal){  %>
+      if(tax.isPrepared_personal){  %>
       <p>Personal Tax Return Request is fufilled</p>
-      <% 
-    } else if(tax.isPrepared_family){
-     %> 
-        <p>Family Tax Return Request is fufilled</p>
-        <%
-    } else {
-        %>
+      <% } else { %>
       <p>Personal Tax Return Request is not fufilled</p>
-      <%   }  %>
+      <% } %>
+
+      <h2> <%= tax.name %>  </h2>
+      <% if(tax.isPrepared_family){ %>
+      <p>Family Tax Return Request is fufilled</p>
+      <% } else { %>
+      <p>Family Tax Return Request is not fufilled</p>
+      <% } %>
+   
     <form action="/taxes/<%= tax._id %>?_method=DELETE" method="POST">
       <button type="submit">Delete</button>
     </form>
